@@ -1,11 +1,17 @@
+require("dotenv").config();
+
 const express = require("express");
 const bodyParser = require("body-parser");
 const { Op } = require("sequelize");
 const db = require("./models");
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
+
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
 
 app.get("/api/playlists", async (req, res) => {
   const { nameLike } = req.query;
