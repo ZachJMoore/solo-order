@@ -8,10 +8,6 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
-app.get("/ping", (req, res) => {
-  res.send(config);
-});
-
 app.get("/api/playlists", async (req, res) => {
   const { nameLike } = req.query;
 

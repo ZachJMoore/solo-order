@@ -5,6 +5,10 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+app.get("/ping", (req, res) => {
+  res.send("pong");
+});
+
 app.get("/echo", (req, res) => {
   res.send(req.query);
 });

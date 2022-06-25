@@ -13,7 +13,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-  express-server-prod:
+  express-server:
     depends_on:
       postgres-database:
         condition: service_healthy
@@ -23,7 +23,7 @@ services:
       - PORT=3000
     env_file: .env
     ports: ["3000:3000"]
-  express-server-two-prod:
+  express-server-two:
     build: ./apps/express_two
     environment:
       - NODE_ENV=production

@@ -13,7 +13,7 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-  express-server-dev:
+  express-server:
     depends_on:
       postgres-database:
         condition: service_healthy
@@ -27,7 +27,7 @@ services:
     volumes:
       - ./apps/express:/usr/src/app
       - /usr/src/app/node_modules
-  express-server-two-dev:
+  express-server-two:
     build: ./apps/express_two
     environment:
       - NODE_ENV=development
