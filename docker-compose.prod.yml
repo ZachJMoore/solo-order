@@ -1,0 +1,12 @@
+version: "3"
+services:
+  express-server-prod:
+    build: ./apps/express
+    environment:
+      - PORT=3000
+    ports: ["3000:3000"]
+  express-server-two-prod:
+    build: ./apps/express_two
+    environment:
+      - PORT=3000
+    ports: ["3001:3000"]
