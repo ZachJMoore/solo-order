@@ -1,17 +1,30 @@
 version: "3"
 services:
+  postgres-database:
+    image: postgres
+    environment:
+      - POSTGRES_USER=${POSTGRES_DEVELOPMENT_USER}
+      - POSTGRES_PASSWORD=${POSTGRES_DEVELOPMENT_PASSWORD}
+      - POSTGRES_DB=${POSTGRES_DEVELOPMENT_DB}
+    volumes:
+      - ./apps/postgres/dev:/var/lib/postgresql/data
   express-server-dev:
+    depends_on:
+      - postgres-database
     build: ./apps/express
     environment:
+      - NODE_ENV=development
       - PORT=3000
+    env_file: .env
     ports: ["3000:3000"]
-    command: ["npm", "run", "dev"]
+    command: ["npm", "run", "startup:dev"]
     volumes:
       - ./apps/express:/usr/src/app
       - /usr/src/app/node_modules
   express-server-two-dev:
     build: ./apps/express_two
     environment:
+      - NODE_ENV=development
       - PORT=3000
     ports: ["3001:3000"]
     command: ["npm", "run", "dev"]

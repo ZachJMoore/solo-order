@@ -1,14 +1,15 @@
 const express = require("express");
 const bodyParser = require("body-parser");
 const { Op } = require("sequelize");
-const db = require("./models");
+const db = require("./database/models");
+const config = require("./database/config/config");
 const app = express();
 const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
 app.get("/ping", (req, res) => {
-  res.send("pong");
+  res.send(config);
 });
 
 app.get("/api/playlists", async (req, res) => {

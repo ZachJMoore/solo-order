@@ -1,0 +1,32 @@
+module.exports = {
+  development: {
+    username: process.env.POSTGRES_DEVELOPMENT_USER,
+    user: process.env.POSTGRES_DEVELOPMENT_USER,
+    password: process.env.POSTGRES_DEVELOPMENT_PASSWORD,
+    database: process.env.POSTGRES_DEVELOPMENT_DB,
+    host: process.env.POSTGRES_DEVELOPMENT_DB_HOST,
+    port: 5432,
+    dialect: "postgres",
+    seederStorage: "sequelize",
+  },
+  staging: {
+    username: process.env.POSTGRES_STAGING_USER,
+    user: process.env.POSTGRES_STAGING_USER,
+    password: process.env.POSTGRES_STAGING_PASSWORD,
+    database: process.env.POSTGRES_STAGING_DB,
+    host: process.env.POSTGRES_STAGING_DB_HOST,
+    port: 5432,
+    dialect: "postgres",
+    seederStorage: "sequelize",
+  },
+  production: {
+    username: process.env.POSTGRES_USER,
+    user: process.env.POSTGRES_USER,
+    password: process.env.POSTGRES_PASSWORD,
+    database: process.env.POSTGRES_DB,
+    host: process.env.POSTGRES_DB_HOST,
+    port: 5432,
+    dialect: "postgres",
+    seederStorage: "sequelize",
+  },
+};
