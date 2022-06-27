@@ -1,3 +1,3 @@
-# youngling
+# padawan
 
-A simple test project for Sequelize and Docker
+A simple test project for Sequelize, NGINX, and Docker
