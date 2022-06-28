@@ -8,6 +8,19 @@ const port = process.env.PORT || 3000;
 
 app.use(bodyParser.json());
 
+if (process.env.NODE_ENV === "development") {
+  app.use("*", (req, res, next) => {
+    console.log({
+      requestedUrl: req.originalUrl,
+    });
+    next();
+  });
+}
+
+app.get("/ping", (req, res) => {
+  res.send("pong (express 1)");
+});
+
 app.get("/api/playlists", async (req, res) => {
   const { nameLike } = req.query;
 
@@ -51,6 +64,10 @@ app.get("/api/playlists/:id", async (req, res) => {
   res.json(playlist);
 });
 
+app.use("*", (req, res) => {
+  res.send("Not Found (express 1)");
+});
+
 app.listen(port, () => {
-  console.log(`Example app listening on port ${port}`);
+  console.log(`Express app 1 listening on port ${port}`);
 });
