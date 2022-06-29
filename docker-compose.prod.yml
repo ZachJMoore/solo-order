@@ -34,3 +34,9 @@ services:
     environment:
       - NODE_ENV=production
       - PORT=3000
+  python-server:
+    build: ./apps/python
+    environment:
+      - PYTHONUNBUFFERED=1
+      - NODE_ENV=development
+      - PORT=3000

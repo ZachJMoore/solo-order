@@ -44,3 +44,13 @@ services:
     volumes:
       - ./apps/express_two:/usr/src/app
       - /usr/src/app/node_modules
+  python-server:
+    build: ./apps/python
+    environment:
+      - PYTHONUNBUFFERED=1
+      - NODE_ENV=development
+      - PORT=3000
+    command: ["npm", "run", "dev"]
+    volumes:
+      - ./apps/python:/usr/src/app
+      - /usr/src/app/node_modules

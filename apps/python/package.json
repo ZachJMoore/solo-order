@@ -1,0 +1,8 @@
+{
+  "scripts": {
+    "dev": "nodemon -L index.py"
+  },
+  "dependencies": {
+    "nodemon": "^2.0.16"
+  }
+}
