@@ -1,8 +1,13 @@
-from time import sleep
-
-
 import time
 
+from utils.index import addNumbers
+
+runCount = 0
+
 while True:
-  time.sleep(1)
-  print("Hello, world!")
+  runCount += 1
+
+  print(addNumbers(runCount, runCount))
+
+  
+  time.sleep(10)
