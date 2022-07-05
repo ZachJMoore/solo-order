@@ -1,3 +1,7 @@
 def addNumbers(a, b):
-    return a + b
+    try:
+        return float(a) + float(b)
+    except ValueError:
+        return None
+
 
